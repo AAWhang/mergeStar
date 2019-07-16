@@ -29,7 +29,7 @@ $(document).ready(function() {
     let spaceyears = 0;
     // let planetArray = [];
     let numOfCrew = 5;
-    let pause = 1;
+    let pause = [1];
     let whyGod = new SpaceEvents;
     let happenings = "";
     for (let c = 0; c < numOfCrew; c++) {
@@ -83,7 +83,7 @@ $(document).ready(function() {
       winCheck();
     }
     function showSpaceShop(){
-      pause = 2;
+      pause[0] = 1;
       startStop();
       missionEnvoy.money += missionEnvoy.materials * 50;
       missionEnvoy.materials = 0;
@@ -232,7 +232,7 @@ $(document).ready(function() {
 
     function gameOverCheck(){
       if (missionEnvoy.hp <= 0 || missionEnvoy.fuel <= 0 || missionEnvoy.crew.length === 0 || missionEnvoy.food <= 0) {
-              $("#prompts").show();
+        $("#prompts").show();
         $("p#eventText").html("game over!");
           pauseFunction();
       }
@@ -248,7 +248,7 @@ $(document).ready(function() {
 
     function winCheck(){
       if (missionEnvoy.distance >= 600000) {
-              $("#prompts").show();
+        $("#prompts").show();
         $("p#eventText").html("You are Oregon Space!");
         pauseFunction();
       }
@@ -256,17 +256,18 @@ $(document).ready(function() {
 
 
     function pauseFunction() {
-      pause = 2;
+      pause[0] = 2;
       clearInterval(timer[0]);
       clearInterval(timer[1]);
     }
+
     function startStop() {
-      if (pause === 1) {
-        pause = 2;
+      if (pause[0] === 1) {
+        pause[0] = 2;
       } else {
-        pause = 1;
+        pause[0] = 1;
       }
-      if (pause === 2) {
+      if (pause[0] === 2) {
         clearInterval(timer[0]);
         clearInterval(timer[1]);
       } else {
@@ -360,15 +361,20 @@ let ynChoice = 0;
 
   $("#goHome").click(function() {
     $("#resultScreen").hide();
+    $("#spaceStation").hide();
+    $("#prompts").hide();
+    $("#envoy").hide();
     $("#home").show();
+    pause[0] = 1;
+    startStop();
   });
 
   $("#exit").click(function() {
-  $("#spaceStation").hide();
-  $("#prompts").hide();
-  $("#envoy").show();
-  pause = 1;
-  startStop();
+    $("#spaceStation").hide();
+    $("#prompts").hide();
+    $("#envoy").show();
+    pause[0] = 2;
+    startStop();
 });
 
 

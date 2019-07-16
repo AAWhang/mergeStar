@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+</head>
+<body>
+  <br>
+  <br>
+  <div class="jumbotron" id="home">
+    <h1 id="title"><b>S T E L L A R  &nbsp  T R A I L</b></h1>
+    <br>
+    <h3>A &nbsp r a c e &nbsp t o &nbsp t h e &nbsp e n d</h3>
+    <br>
+    <button type="submit" class="button" id="start">START!</button>
+  </div>
+  <div class="container" id="gameSelector">
+    <br>
+    <br>
+    <button type="button" class="btn" id="game1">ENVOY</button>
+    <!-- <button type="button" class="btn" id="game2">COLONIZE</button> -->
+    <br>
+    <br>
+    <br>
+  </div>
+  <div class="container" id="envoy">
+    <div class="col-md-12">
+      <div class="card" id="gameUi">
+        <div class="row">
+          <div class="col-md-9" id="left">
+            <div class="card" id="gameWindow">
+              <br>
+              <h2 id="sT">S T E L L A R &nbsp T R A I L</h2>
+              <br>
+              <img src="https://cdnb.artstation.com/p/assets/images/images/004/203/771/original/david-boyle-ship-animation.gif?1481299250" alt="Enemy Player" class="opponent">
+              <br>
+              <br>
+              <div class="container" id="prompts">
+                <div class="card" id="promptEvent">
+                  <p id="eventText">Event Text goes here</p>
+                  <button type="button" class="btn" id="eventYes">Yes</button>
+                  <button type="button" class="btn" id="eventNo">No</button>
+                </div>
+                <div class="container">
+                  <br>
+                  <br>
+                  <p id="gameEvent"></p>
+                  <br>
+                </div>
+              </div>
+            </div>
+          </div>
+            <div class="col-md-3" id="right">
+              <div class="card" id="shipType">
+              <br>
+              <br>
+              <h4>Mission: Envoy</h4>
+              <br>
+              <div class="container">
+                <p>CARGO HOLD :</p>
+                <p id="money">MONEY :<font color="Yellow"> $0 CREDITS</font></p>
+                <p id="shipParts">REPAIR PARTS :</p>
+                <p id="shipOre">ORE :</p>
+                <p id="shipWeapons">WEAPONS :</p>
+                <br>
+                <p id="travelDistance">DISTANCE TRAVELED :</p>
+                <span id="distanceTraveled"></span>
+                <br>
+                <br>
+                <p id ="elapsedTime">ELAPSED TIME : <p id=months>Months</p><p id="years"> Years</p></p>
+                </div>
+              </div>
+              <div class="card" id="statCard">
+                <p>SHIP STATS</p>
+                CREW : 5
+                <br>
+                HP :
+                <center><span id="shipHp"></span></center>
+                Shield :
+                <center><span id="shield"></span></center>
+                Fuel :
+                <center><span id="fuel"></span></center>
+                Food :
+                <center><span id="food"></span></center>
+                <br>
+              </div>
+              <br>
+            </div>
+          </div>
+          <div class="card" id="actionBar">
+            <div class="row" id="row1">
+              <br>
+              <div class="col-md-2">
+                <div class="card" id="crew1">
+                  <br>
+                  <p>CREW 1</P>
+                    Health :
+                    <span id="health0"></span>
+                    <br>
+                </div>
+              </div>
+              <br>
+              <div class="col-md-2">
+                <div class="card" id="crew2">
+                  <br>
+                  <p>CREW 2</P>
+                    Health :
+                    <span id="health1"></span>
+                    <br>
+                </div>
+              </div>
+              <br>
+              <div class="col-md-2">
+                <div class="card" id="crew3">
+                  <br>
+                  <p>CREW 3</P>
+                    Health :
+                    <span id="health2"></span>
+                    <br>
+                </div>
+              </div>
+              <br>
+              <div class="col-md-2">
+                <div class="card" id="crew4">
+                  <br>
+                  <p>CREW 4</P>
+                    Health :
+                    <span id="health3"></span>
+                    <br>
+                </div>
+              </div>
+              <br>
+              <div class="col-md-2">
+                <div class="card" id="crew5">
+                  <br>
+                  <p>CREW 5</P>
+                    Health :
+                    <span id="health4"></span>
+                    <br>
+                </div>
+              </div>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    <br>
+    <button type="button" class="btn" id="gameMenu">Game Menu</button>
+    <button type="button" class="btn" id="goHome">Go Home</button>
+    <br>
+    <br>
+  </div>
+  <!-- <div class="container" id="colonize">
+    <div class="col-md-12">
+        <div class="card" id="gameUi">
+          <div class="row">
+            <div class="col-md-9" id="left">
+              <div class="card" id="gameWindow">
+                <br>
+                <h2 id="sT">S T E L L A R &nbsp T R A I L</h2>
+                <br>
+                <img src="https://worldofweirdthings.com/wp-content/uploads/eve_space_battle_1200.jpg" alt="Enemy Player" class="opponent">
+                <br>
+                <br>
+                <div class="container" id="prompts2">
+                <br>
+                <br>
+                <p id="gameEvent2">POSSIBLE EVENT TEXT</p>
+                <br>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3" id="right">
+              <div class="card" id="shipType">
+                <br>
+                <br>
+                <h4>Mission: Colonize</h4>
+                <br>
+                <div class="container">
+                  <p>CARGO HOLD :</p>
+                  <p id="money">MONEY :<font color="Yellow"> $0 CREDITS</font></p>
+                  <p id="shipParts">REPAIR PARTS :</p>
+                  <p id="shipOre">ORE :</p>
+                  <p id="shipWeapons">WEAPONS :</p>
+                  <br>
+                  <p id="travelDistance">DISTANCE TRAVELED : </p>
+                  <progress id="distanceTraveled" value="0" max="100"></progress>
+                  <br>
+                  <br>
+                  <p id ="elapsedTime">ELAPSED TIME : <p id=months>Months</p><p id="years"> Years</p></p>
+                </div>
+              </div>
+                <div class="card" id="statCard">
+                  <p>SHIP STATS :</p>
+                  CREW : 10
+                  <br>
+                  HP :
+                  <center><progress id="shipHp" value="100" max="100"></progress></center>
+                  Shields :
+                  <center><progress id="shield" value="100" max="100"></progress></center>
+                  Fuel :
+                  <center><progress id="fuel" value="100" max="100"></progress></center>
+                  Food :
+                  <center><progress id="food" value="100" max="100"></progress></center>
+                  <br>
+                </div>
+                <br>
+            </div>
+          </div>
+
+            <div class="card" id="actionBar">
+              <div class="row" id="row2">
+                <div class="col-md-2">
+                  <div class="card" id="crew1">
+                    <br>
+                    <p>CREW 1</P>
+                      Health:
+                      <progress id="health" value="100" max="100"></progress>
+                      <br>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="card" id="crew3">
+                    <br>
+                    <p>CREW 2</P>
+                      Health :
+                      <progress id="health" value="100" max="100"></progress>
+                      <br>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="card" id="crew3">
+                    <br>
+                    <p>CREW 3</P>
+                      Health :
+                      <progress id="health" value="100" max="100"></progress>
+                      <br>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="card" id="crew4">
+                    <br>
+                    <p>CREW 4</P>
+                      Health :
+                      <progress id="health" value="100" max="100"></progress>
+                      <br>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="card" id="crew5">
+                    <br>
+                    <p>CREW 5</P>
+                      Health:
+                      <progress id="health" value="100" max="100"></progress>
+                      <br>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row" id="row3">
+                <div class="col-md-2">
+                  <div class="card" id="crew6">
+                    <br>
+                    <p>CREW 6</P>
+                      Health:
+                      <progress id="health" value="100" max="100"></progress>
+                      <br>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="card" id="crew7">
+                  <br>
+                    <p>CREW 7</P>
+                      Health:
+                      <progress id="health" value="100" max="100"></progress>
+                      <br>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="card" id="crew8">
+                    <br>
+                    <p>CREW 8</P>
+                      Health:
+                      <progress id="health" value="100" max="100"></progress>
+                      <br>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="card" id="crew9">
+                    <br>
+                    <p>CREW 9</p>
+                    Health:
+                    <progress id="health" value="100" max="100"></progress>
+                    <br>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="card" id="crew10">
+                    <br>
+                    <p>CREW10</P>
+                      Health:
+                      <progress id="health" value="100" max="100"></progress>
+                      <br>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <button type="button" class="btn" id="gameMenu2">Game Menu</button>
+          <button type="button" class="btn" id="goHome2">Go Home</button>
+          <br>
+        <br>
+      </div>
+    </div>
+          <br>
+          <br> -->
+
+  <div class="container" id="spaceStation">
+    <br>
+    <center><h2 id="sP">S P A C E &nbsp S T A T I O N</h2></center>
+    <br>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="container" id="station">
+          <div class="card" id="stationDesign">
+            <div class="row" id="row4">
+              <div class="col-md-3">
+                <div class="card" id="item1">
+                  <br>
+                  <img src="https://img.pngio.com/-fuel-png-300_300.png" alt="stationKeeper" class="stationItemImages">
+                  <br>
+                  <p>Fuel, its free! for just 50 credits!</p>
+                  <input type="number" name="qty" id="fuel">
+                  <button type="button" class="btn fuelpurchase" id="purchase">Buy</button>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card" id="item2">
+                  <br>
+                  <img src="https://www.mreinfo.com/wp-content/uploads/2015/10/71S1bEkM-AL._SL1500_rz2.png" alt="stationKeeper" class="stationItemImages">
+                  <br>
+                  <p>MRE, just add water and boom calories </p>
+                  <input type="number" name="qty" id="mre">
+                  <button type="button" class="btn mrepurchase" id="purchase">Buy</button>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card" id="item3">
+                  <br>
+                  <img src="http://www.pngmart.com/files/3/Ammunition-PNG-Clipart.png" alt="stationKeeper" class="stationItemImages">
+                  <br>
+                  <p>Ammo for... you know, "self defense"</p>
+                  <input type="number" name="qty" id="ammo">
+                  <button type="button" class="btn ammopurchase" id="purchase">Buy</button>
+                </div>
+              </div>
+              <br>
+              <br>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="row" id="row5">
+              <div class="col-md-3">
+                <div class="card" id="item4">
+                  <br>
+                  <img src="https://www.todaysrdh.com/wp-content/uploads/2017/12/nanobots.png" alt="stationKeeper" class="stationItemImages">
+                  <br>
+                  <p>Nano bots, waaay better than tylenol </p>
+
+                  <button type="button" class="btn nanopurchase" id="purchase">Buy</button>
+                </div>
+              </div>
+              <br>
+              <br>
+              <div class="col-md-3">
+                <div class="card" id="item5">
+                  <br>
+                  <img src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-a-set-of-motorcycle-parts-png-image_4173409.jpg" alt="stationKeeper" class="stationItemImages">
+                  <br>
+                  <p>Ship damaged? Here buy this springy thing </p>
+
+                  <button type="button" class="btn repairpurchase" id="purchase">Buy</button>
+                </div>
+              </div>
+              <br>
+              <br>
+              <div class="col-md-3">
+                <div class="card" id="item6">
+                  <br>
+                  <img src="https://gamepedia.cursecdn.com/arksurvivalevolved_gamepedia/a/a2/Tek_Replicator.png" alt="stationKeeper" class="stationItemImages">
+                  <br>
+                  <p>Shield generators, will block almost anyhting </p>
+
+                  <button type="button" class="btn shieldpurchase" id="purchase">Buy</button>
+                  <br>
+                </div>
+              </div>
+              <br>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <button id="exit">Exit</button>
+    <br>
+    <br>
+  </div>
+  <br>
+  <br>
+<script type="text/javascript" src="bundle.js"></script></body>
+<br>
+<div class="footer">
+  <p><center>Copyright (C) by Uriel, Anthony, Aaron & Mark, 2019.</center></p>
+</div>
+</html>
