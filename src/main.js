@@ -29,7 +29,6 @@ $(document).ready(function() {
     let spaceyears = 0;
     // let planetArray = [];
     let numOfCrew = 5;
-    let pause = [1];
     let whyGod = new SpaceEvents;
     let happenings = "";
     for (let c = 0; c < numOfCrew; c++) {
@@ -62,8 +61,8 @@ $(document).ready(function() {
       missionEnvoy.distance += 50;
       missionEnvoy.fuel -= 20;
       missionEnvoy.food -= 5;
-      // let die1 = Math.floor(Math.random() * 4);
-      // missionEnvoy.crew[die1].health -= 1;
+      let die1 = Math.floor(Math.random() * 4);
+      missionEnvoy.crew[die1].health -= 1;
       $("#shipHp").html("<progress id='shipHp' value=" + Math.floor(missionEnvoy.hp / 10) + " max='100'></progress>");
       $("#fuel").html("<progress id='fuel' value=" + Math.floor(missionEnvoy.fuel * 100 / missionEnvoy.fuelcap) + " max='100'></progress>");
       $("#food").html("<progress id='food' value=" + Math.floor(missionEnvoy.food * 100 / missionEnvoy.foodcap) + " max='100'></progress>");
@@ -74,8 +73,12 @@ $(document).ready(function() {
       $("#distanceTraveled").html("<progress id='distanceTraveled' value=" + Math.floor(missionEnvoy.distance * 100 / 600000) + " max='100'></progress>");
       $("#shipOre").html("ship materials: " + missionEnvoy.materials);
       $("#shipParts").html("ship parts: " + missionEnvoy.parts);
-      for (let i = 0; i < missionEnvoy.crew.length; i++) {
+      for (let i = 0; i < 5; i++) {
         $("#health" + i).html("<progress id='health' value=" + Math.floor(missionEnvoy.crew[i].health / 3) + " max='100'></progress>");
+        if (missionEnvoy.crew[i].health === undefined)
+        {
+          $("#health" + i).html("");
+        }
       }
       spaceHappenings(missionEnvoy.distance);
       deathCheck();
@@ -83,8 +86,7 @@ $(document).ready(function() {
       winCheck();
     }
     function showSpaceShop(){
-      pause[0] = 1;
-      startStop();
+      pauseFunction();
       missionEnvoy.money += missionEnvoy.materials * 50;
       missionEnvoy.materials = 0;
       $("#spaceStation").show();
@@ -256,46 +258,35 @@ $(document).ready(function() {
 
 
     function pauseFunction() {
-      pause[0] = 2;
       clearInterval(timer[0]);
       clearInterval(timer[1]);
     }
 
-    function startStop() {
-      if (pause[0] === 1) {
-        pause[0] = 2;
-      } else {
-        pause[0] = 1;
-      }
-      if (pause[0] === 2) {
-        clearInterval(timer[0]);
-        clearInterval(timer[1]);
-      } else {
+    function startFunction() {
         timer[0] = setInterval(logM, 700);
         timer[1] = setInterval(logN, 50);
-      }
     }
 
     // function yesNo() {
     //   pauseFunction();
     //   $("#eventYes").click(function(){
-    //     startStop();
+    //     startFunction();
     //     $("#prompts").hide();
     //   });
     //   $("#eventNo").click(function(){
-    //     startStop();
+    //     startFunction();
     //     $("#prompts").hide();
     //   });
     // }
 let ynChoice = 0;
     $("button#eventYes").click(function(){
-      startStop();
+      startFunction();
       ynChoice = 1;
       missionEnvoy = whyGod[happenings](missionEnvoy, ynChoice);
       $("#prompts").hide();
     });
     $("button#eventNo").click(function(){
-      startStop();
+      startFunction();
       ynChoice = 2;
       missionEnvoy = whyGod[happenings](missionEnvoy, ynChoice);
       $("#prompts").hide();
@@ -336,53 +327,51 @@ let ynChoice = 0;
       missionEnvoy.shield = 1000;
       missionEnvoy.money -= 1000;
     });
+
+
+
+    // $("#game2").click(function() {
+    //   $("#gameSelector").hide();
+    //   $("#colonize").show();
+    // });
+
+    $("#gameMenu").click(function() {
+      $("#envoy").hide();
+      $("#gameSelector").show();
+      pauseFunction();
+    });
+
+    // $("#gameMenu2").click(function() {
+    //   $("#colonize").hide();
+    //   $("#gameSelector").show();
+    // });
+
+    // $("#playAgain").click(function() {
+    //   $("#resultScreen").hide();
+    //   $("#gameSelector").show();
+    // });
+
+    $("#goHome").click(function() {
+      $("#resultScreen").hide();
+      $("#spaceStation").hide();
+      $("#prompts").hide();
+      $("#envoy").hide();
+      $("#home").show();
+      pauseFunction();
+    });
+
+    $("#exit").click(function() {
+      $("#spaceStation").hide();
+      $("#prompts").hide();
+      $("#envoy").show();
+      startFunction();
   });
 
 
-  // $("#game2").click(function() {
-  //   $("#gameSelector").hide();
-  //   $("#colonize").show();
-  // });
 
-  $("#gameMenu").click(function() {
-    $("#envoy").hide();
-    $("#gameSelector").show();
-  });
 
-  // $("#gameMenu2").click(function() {
-  //   $("#colonize").hide();
-  //   $("#gameSelector").show();
-  // });
 
-  // $("#playAgain").click(function() {
-  //   $("#resultScreen").hide();
-  //   $("#gameSelector").show();
-  // });
-
-  $("#goHome").click(function() {
-    $("#resultScreen").hide();
-    $("#spaceStation").hide();
-    $("#prompts").hide();
-    $("#envoy").hide();
-    $("#home").show();
-    pause[0] = 1;
-    startStop();
-  });
-
-  $("#exit").click(function() {
-    $("#spaceStation").hide();
-    $("#prompts").hide();
-    $("#envoy").show();
-    pause[0] = 2;
-    startStop();
 });
-
-
-
-
-
-
-
 
 
 
